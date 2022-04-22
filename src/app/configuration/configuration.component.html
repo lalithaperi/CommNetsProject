@@ -1,0 +1,45 @@
+<div class="Topic">
+<h2>Configuration {{node}}</h2>
+<div class="spinner-container" *ngIf="loading">
+
+  <mat-spinner></mat-spinner>
+</div>
+<mat-form-field style="width: 50%">
+  <mat-select placeholder="Select Any Node" [(ngModel)]="node">
+      <mat-option *ngFor="let i of ngOptions" (click)="func()" [value]="i">
+          {{i}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="dataSource.length>0">
+  <!--Table with data from Data Source-->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>#ID</th>
+        <td mat-cell class="description-cell"
+                  *matCellDef="let lesson">{{lesson.id}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="topic">
+        <th mat-header-cell *matHeaderCellDef>Topic</th>
+        <td mat-cell class="description-cell"
+                  *matCellDef="let lesson">{{lesson.topic }}</td>
+      </ng-container>
+
+    <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Value</th>
+        <td mat-cell class="duration-cell" *matCellDef="let lesson"> 
+          <mat-form-field>
+          <input matInput [(ngModel)]="lesson.value" (mouseenter)="editTopic(lesson.topic ,lesson.value)">
+         </mat-form-field> </td>
+    </ng-container>
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>    
+</div>
+</div>
+   
+
+

@@ -1,0 +1,28 @@
+.Topic {
+  text-align: center;
+  width: 390px;
+  margin: 0 auto;
+}
+table {
+  width: 120%;;
+}
+select{
+  width: auto;
+  text-align: center;
+  shape-rendering: crispEdges;
+}
+th{
+  text-align: center;
+  font-style: oblique;
+  font-size: medium;
+}
+td{
+  text-align: left;
+  font-style: oblique;
+  
+}
+input{
+  width: 100%;
+  text-align: center;
+  font-size: medium;
+}
